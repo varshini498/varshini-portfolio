@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import aiCareerImg from './assets/projects/ai-career.png'
+import smartPortalImg from './assets/projects/smart-portal.png'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
+import Projects from './components/Projects'
 import Education from './components/Education'
 import Experience from './components/Experience'
 import Certificates from './components/Certificates'
@@ -12,135 +15,156 @@ import Contact from './components/Contact'
 
 const sectionIds = [
   'home',
-  'about',
   'projects',
+  'skills',
   'education',
-  'experience',
+  'about',
   'certificates',
   'platforms',
   'contact',
 ]
 
 const portfolioData = {
-  name: '[Your Name]',
-  email: '[Your Email]',
-  phone: '+91 98765 43210',
-  dob: '01 January 2000',
-  address: 'Chennai, Tamil Nadu, India',
-  resumeLink: '#',
-  projectsCompleted: '[Your Projects]',
+  name: 'Varshini M',
+  email: 'varshini.m498@gmail.com',
+  phone: '6379106242',
+  dob: '21-10-2005',
+  address: 'Tiruppur, Tamil Nadu, India',
+  resumeLink: '/resume.pdf',
+  projectsCompleted: '2+',
   intro:
-    'I build thoughtful digital experiences with a strong foundation in development, design, and problem solving. I enjoy creating clean interfaces, writing efficient code, and turning ideas into polished products.',
+    'AI & Machine Learning undergraduate with proficiency in Java, Python, SQL, and backend development. Experienced in building ML-powered web applications, REST APIs, data pipelines, and analytics dashboards. Passionate about scalable product development, problem-solving, and large-scale systems.',
   about:
-    'I am a motivated developer with a growing interest in full-stack engineering, UI/UX design, and competitive programming. I enjoy learning new technologies, collaborating on real-world projects, and building experiences that feel intuitive and modern.',
-  roles: ['Frontend Developer', 'UI/UX Enthusiast', 'Problem Solver'],
+    'AI & Machine Learning undergraduate passionate about building scalable systems and intelligent applications.',
+  tagline: 'AI and ML Undergraduate',
+  projects: [
+    {
+      title: 'AI Career Advisor',
+      image: aiCareerImg,
+      link: 'https://ai-career-advisor-9.onrender.com/',
+      description: 'ML-based career guidance platform',
+      badge: 'Deployed Project',
+    },
+    {
+      title: 'Smart Change Request Portal',
+      image: smartPortalImg,
+      link: 'https://smart-change-request-portal-4.onrender.com/',
+      description: 'Workflow-based system for managing change requests',
+      badge: 'Full-Stack Build',
+    },
+  ],
   education: [
     {
-      title: 'Bachelor of Engineering in Computer Science',
-      place: 'Your College Name',
-      duration: '2021 - 2025',
-      score: 'CGPA: 8.9/10',
+      title: 'B.Tech AI & ML',
+      place: 'Bannari Amman Institute of Technology',
+      duration: '2023 - Present',
+      score: 'CGPA: 8.25 / 10',
       description:
-        'Focused on software engineering, database systems, web development, and hands-on project work.',
+        'Pursuing a strong academic foundation in artificial intelligence, machine learning, software systems, and applied development.',
     },
     {
-      title: 'Higher Secondary Education',
-      place: 'Your School Name',
-      duration: '2019 - 2021',
-      score: '12th Score: 92%',
+      title: 'Higher Secondary Certificate',
+      place: 'AVP Trust National Matric Hr Sec School',
+      duration: 'Completed',
+      score: 'HSC - 94.67%',
       description:
-        'Built a strong academic base in mathematics, computer science, and analytical thinking.',
-    },
-    {
-      title: 'Secondary School Education',
-      place: 'Your School Name',
-      duration: '2018 - 2019',
-      score: '10th Score: 94%',
-      description:
-        'Developed strong fundamentals and consistent academic performance across core subjects.',
+        'Completed higher secondary studies with strong academic performance and a clear interest in technical fields.',
+      secondaryScore: 'SSLC - 100%',
     },
   ],
   experiences: [
     {
-      role: 'Web Development Intern',
-      company: 'Innovative Tech Studio',
-      duration: 'Jun 2024 - Aug 2024',
+      role: 'Machine Learning Intern',
+      company: 'Elevate Labs',
+      duration: 'Online | 45 days',
       description:
-        'Designed responsive interfaces, improved page performance, and collaborated with mentors to ship polished UI components.',
-    },
-    {
-      role: 'UI/UX Project Contributor',
-      company: 'Campus Design Cell',
-      duration: 'Jan 2024 - May 2024',
-      description:
-        'Created wireframes, interaction flows, and visual systems for student-focused digital products.',
+        'Worked on data preprocessing, machine learning models, and end-to-end workflow implementation. Improved problem-solving skills and understanding of analytics systems integration.',
     },
   ],
   certificates: [
     {
-      title: 'Python for Everybody',
-      issuer: 'Coursera',
-      link: '#',
+      title: 'Guideware Certificate',
+      link: '/certificates/Guideware.pdf',
     },
     {
-      title: 'SQL and Relational Databases',
-      issuer: 'IBM SkillsBuild',
-      link: '#',
+      title: 'Hackelevate Certificate',
+      link: '/certificates/Hackelevate.pdf',
     },
     {
-      title: 'Responsive Web Design',
-      issuer: 'freeCodeCamp',
-      link: '#',
+      title: 'Turbohaq Certificate',
+      link: '/certificates/Turbohaq.pdf',
     },
   ],
   platforms: [
     {
-      name: 'CodeChef',
-      description: 'Explore coding contest participation and problem-solving progress.',
-      link: '#',
-    },
-    {
-      name: 'HackerRank',
-      description: 'View verified skill badges and practice milestones across domains.',
-      link: '#',
-    },
-    {
-      name: 'LeetCode',
-      description: 'See consistency in data structures, algorithms, and interview prep.',
-      link: '#',
-    },
-    {
       name: 'LinkedIn',
-      description: 'Connect for professional updates, networking, and project highlights.',
-      link: '#',
+      description:
+        'Connect for professional updates, academic milestones, and project highlights.',
+      link: 'https://www.linkedin.com/in/varshini-m-695850300/',
     },
     {
       name: 'GitHub',
-      description: 'Browse repositories, experiments, and hands-on development work.',
-      link: '#',
+      description:
+        'Browse repositories, deployed projects, and hands-on development work across the stack.',
+      link: 'https://github.com/varshini498',
+    },
+    {
+      name: 'LeetCode',
+      description:
+        'See consistency in data structures, algorithms, and interview-focused problem solving.',
+      link: 'https://leetcode.com/u/Varshini_498/',
+    },
+    {
+      name: 'HackerRank',
+      description:
+        'View coding practice, skill assessments, and progress across technical domains.',
+      link: 'https://www.hackerrank.com/profile/varshini_m498',
     },
   ],
   skills: [
-    { name: 'Python', level: 90 },
-    { name: 'Java', level: 82 },
-    { name: 'SQL', level: 86 },
-    { name: 'C++', level: 78 },
-    { name: 'HTML', level: 92 },
-    { name: 'UI/UX', level: 84 },
-    { name: 'C', level: 75 },
+    {
+      category: 'Programming',
+      items: ['Python', 'Java', 'JavaScript', 'SQL', 'C'],
+    },
+    {
+      category: 'Frontend',
+      items: ['HTML', 'CSS', 'Responsive Design'],
+    },
+    {
+      category: 'Frameworks',
+      items: ['React', 'Node.js', 'Flask'],
+    },
+    {
+      category: 'Tools',
+      items: ['GitHub', 'VS Code', 'Postman'],
+    },
   ],
   personalDetails: [
-    { label: 'Name', value: '[Your Name]' },
-    { label: 'DOB', value: '01 January 2000' },
-    { label: 'Address', value: 'Chennai, Tamil Nadu, India' },
-    { label: 'Email', value: '[Your Email]' },
-    { label: 'Phone', value: '+91 98765 43210' },
+    { label: 'Name', value: 'Varshini M' },
+    { label: 'DOB', value: '21-10-2005' },
+    { label: 'Address', value: 'Tiruppur, Tamil Nadu, India' },
+    { label: 'Email', value: 'varshini.m498@gmail.com' },
+    { label: 'Phone', value: '6379106242' },
   ],
+  linkedin: 'https://www.linkedin.com/in/varshini-m-695850300/',
 }
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isLoading, setIsLoading] = useState(true)
+  const [theme, setTheme] = useState('dark')
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('theme')
+    if (savedTheme) {
+      setTheme(savedTheme)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.body.className = theme
+    window.localStorage.setItem('theme', theme)
+  }, [theme])
 
   useEffect(() => {
     const timer = window.setTimeout(() => setIsLoading(false), 1500)
@@ -175,17 +199,20 @@ function App() {
 
   const navItems = useMemo(
     () => [
-      { id: 'home', label: 'Home' },
-      { id: 'about', label: 'About' },
       { id: 'projects', label: 'Projects' },
+      { id: 'skills', label: 'Skills' },
       { id: 'education', label: 'Education' },
-      { id: 'experience', label: 'Experience' },
+      { id: 'about', label: 'About' },
       { id: 'certificates', label: 'Certificates' },
       { id: 'platforms', label: 'Platforms' },
       { id: 'contact', label: 'Contact' },
     ],
     [],
   )
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'))
+  }
 
   return (
     <>
@@ -220,13 +247,16 @@ function App() {
             name={portfolioData.name}
             navItems={navItems}
             activeSection={activeSection}
+            theme={theme}
+            toggleTheme={toggleTheme}
           />
           <main>
             <Hero data={portfolioData} />
-            <About data={portfolioData} />
+            <Projects items={portfolioData.projects} />
             <Skills skills={portfolioData.skills} />
-            <Education items={portfolioData.education} />
             <Experience items={portfolioData.experiences} />
+            <Education items={portfolioData.education} />
+            <About data={portfolioData} />
             <Certificates items={portfolioData.certificates} />
             <Platforms items={portfolioData.platforms} />
             <Contact data={portfolioData} />

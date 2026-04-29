@@ -24,7 +24,7 @@ function Skills({ skills }) {
   }, [])
 
   return (
-    <section ref={sectionRef} className="section">
+    <section id="skills" ref={sectionRef} className="section">
       <motion.div
         className="section-inner"
         initial={{ opacity: 0, y: 28 }}
@@ -33,34 +33,34 @@ function Skills({ skills }) {
         transition={{ duration: 0.65 }}
       >
         <div className="section-header">
-          <span className="section-tag">Skills</span>
-          <h2>Technical strengths shaped through hands-on learning.</h2>
+          <span className="section-tag">Technical Skills</span>
+          <h2>Technical strengths across development, frontend, frameworks, and tools.</h2>
           <p className="section-copy">
-            A balanced mix of programming, web development, and interface
-            design skills with room to keep growing.
+            A practical toolkit built through coursework, hands-on projects,
+            and continuous problem solving.
           </p>
         </div>
 
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <article
-              key={skill.name}
-              className="skill-card"
-              style={{ animationDelay: `${index * 0.08}s` }}
+        <div className="skills-grid skill-category-grid">
+          {skills.map((group, index) => (
+            <motion.article
+              key={group.category}
+              className="skill-card skill-category-card"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 24 }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
             >
               <div className="skill-head">
-                <h3>{skill.name}</h3>
-                <span>{skill.level}%</span>
+                <h3>{group.category}</h3>
               </div>
-              <div className="progress-track">
-                <motion.div
-                  className="progress-bar"
-                  initial={{ width: 0 }}
-                  animate={{ width: isVisible ? `${skill.level}%` : 0 }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                />
+              <div className="skill-chip-wrap">
+                {group.items.map((item) => (
+                  <span key={item} className="skill-chip">
+                    {item}
+                  </span>
+                ))}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </motion.div>

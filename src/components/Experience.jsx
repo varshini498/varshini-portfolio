@@ -12,7 +12,7 @@ function Experience({ items }) {
       >
         <div className="section-header">
           <span className="section-tag">Experience</span>
-          <h2>Where I applied design thinking and development skills.</h2>
+          <h2>Hands-on experience applying machine learning in real workflows.</h2>
         </div>
 
         <div className="card-grid">

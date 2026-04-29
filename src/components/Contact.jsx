@@ -14,8 +14,8 @@ function Contact({ data }) {
           <span className="section-tag">Contact</span>
           <h2>Let's connect and build something meaningful.</h2>
           <p className="section-copy">
-            Reach out for internships, collaborations, freelance work, or a
-            quick conversation about ideas and opportunities.
+            Reach out for internships, collaborations, project opportunities,
+            or a quick conversation about building impactful products.
           </p>
         </div>
 
@@ -24,20 +24,16 @@ function Contact({ data }) {
             <span>Phone</span>
             <strong>{data.phone}</strong>
           </a>
-          <a
-            className="contact-card"
-            href={`https://wa.me/${data.phone.replace(/\D/g, '')}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>WhatsApp</span>
-            <strong>Chat on WhatsApp</strong>
-          </a>
           <a className="contact-card" href={`mailto:${data.email}`}>
             <span>Email</span>
             <strong>{data.email}</strong>
           </a>
-          <a className="contact-card" href="#">
+          <a
+            className="contact-card"
+            href={data.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>LinkedIn</span>
             <strong>Visit LinkedIn Profile</strong>
           </a>

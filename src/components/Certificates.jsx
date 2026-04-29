@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 
 function Certificates({ items }) {
+  const certificates = items
+
   return (
     <section id="certificates" className="section">
       <motion.div
@@ -12,20 +14,29 @@ function Certificates({ items }) {
       >
         <div className="section-header">
           <span className="section-tag">Certificates</span>
-          <h2>Validated learning through recognized programs.</h2>
+          <h2>Certifications that reinforce continuous technical learning.</h2>
         </div>
 
         <div className="card-grid">
-          {items.map((item) => (
-            <article key={item.title} className="content-card">
-              <div className="card-topline">
-                <span>{item.issuer}</span>
-              </div>
-              <h3>{item.title}</h3>
-              <a className="inline-btn" href={item.link}>
+          {certificates.map((cert, index) => (
+            <motion.article
+              key={index}
+              className="content-card card"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <h3>{cert.title}</h3>
+              <a
+                className="inline-btn btn"
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Certificate
               </a>
-            </article>
+            </motion.article>
           ))}
         </div>
       </motion.div>

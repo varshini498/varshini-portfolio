@@ -12,7 +12,7 @@ function Education({ items }) {
       >
         <div className="section-header">
           <span className="section-tag">Education</span>
-          <h2>Academic milestones that shaped my foundation.</h2>
+          <h2>Academic milestones supporting a strong AI and systems foundation.</h2>
         </div>
 
         <div className="timeline">
@@ -27,6 +27,9 @@ function Education({ items }) {
                 <strong>{item.place}</strong>
                 <p>{item.description}</p>
                 <em>{item.score}</em>
+                {item.secondaryScore ? (
+                  <span className="timeline-subscore">{item.secondaryScore}</span>
+                ) : null}
               </div>
             </article>
           ))}
